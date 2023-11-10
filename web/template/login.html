@@ -1,0 +1,92 @@
+{{ define "login" }}
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="/web/static/css/login.css">
+  <link rel="stylesheet" type="text/css" href="/web/static/css/mobile.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>   
+  <div class="back">
+    <a  href="/forum?name=all" style="text-decoration: none;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" style="fill: #ffffff;">
+        <path d="m12.707 7.707-1.414-1.414L5.586 12l5.707 5.707 1.414-1.414L8.414 12z"></path>
+        <path d="M16.293 6.293 10.586 12l5.707 5.707 1.414-1.414L13.414 12l4.293-4.293z"></path>
+      </svg>
+      <span>FORUM</span>
+    </a>
+  </div> 
+  <div class="main">
+    <div class="container a-container" id="a-container">
+      <form action="/login" method="POST" class="form" id="a-form">
+        <h2 class="form_title title">Create Account</h2>
+        <div class="form__icons"><i class='bx bxl-git form__icon'></i></div>
+        <span class="form__span {{.Status}}">{{.Message}}</span>
+        <input class="form__input" type="text" placeholder="UserName" name="username" required>
+        <input class="form__input" type="email" placeholder="Email" name="email" required>
+        <input class="form__input" type="password" placeholder="Password" name="password" required>
+        <input type="submit" class="form__button button submit switch-button-signin" name="signup" value="SIGN UP">
+      </form>
+    </div>
+    <div class="container b-container" id="b-container">
+      <form method="POST" class="form myForm" id="b-form">
+        <h2 class="form_title title">Sign in to Website</h2>
+        <div class="form__icons"><i class='bx bxl-git form__icon'></i></div>
+        <span class="form__span {{.Status}}">{{.Message}}</span>
+        <input class="form__input" type="email" placeholder="Email" name="email" required>
+        <input class="form__input" type="password" placeholder="Password" name="password" required>
+        <input type="submit" class="form__button button submit switch-button-signin" name="signin" value="SIGN IN">
+      </form>
+    </div>
+    <div class="switch" id="switch-cnt">
+      <div class="switch__circle"></div>
+      <div class="switch__circle switch__circle--t"></div>
+      <div class="switch__container" id="switch-c1">
+        <h2 class="switch__title title">Welcome Back !</h2>
+        <p class="switch__description description">To keep connected with us please login with your personal info</p>
+        <button class="switch__button button switch-btn">SIGN IN</button>
+      </div>
+      <div class="switch__container is-hidden" id="switch-c2">
+        <h2 class="switch__title title">Hello Friend !</h2>
+        <p class="switch__description description">Enter your personal details and start journey with us</p>
+        <button class="switch__button button switch-btn">SIGN UP</button>
+      </div>
+    </div>
+  </div>
+  <!-- partial:index.partial.html -->
+  <div class="form-structor">
+    <form action="/login" method="POST" class="signup">
+      <h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
+      <div>
+        <span class="form__span mobile_info {{.Status}}">{{.Message}}</span>
+        <div class="form-holder">
+          <input type="text" class="input" placeholder="Username" name="username" required/>
+          <input type="email" class="input" placeholder="Email" name="email" required/>
+          <input type="password" class="input" placeholder="Password" name="password" required/>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn" name="signup" value="SIGN UP">Sign up</button>
+    </form>
+    <div class="login slide-up">
+      <form method="POST" class="center myForm">
+        <h2 class="form-title" id="login"><span>or</span>Log in</h2>
+        <div>
+          <span class="form__span mobile_info {{.Status}}">{{.Message}}</span>
+          <div class="form-holder">
+            <input type="email" class="input" placeholder="Email" name="email" required/>
+            <input type="password" class="input" placeholder="Password" name="password" required/>
+          </div>
+        </div>
+        <button type="submit" class="submit-btn" name="signin" value="SIGN IN">Log in</button>
+      </form>
+    </div>
+  </div>
+  <script  src="/web/static/js/login.js"></script>
+  <script  src="/web/static/js/mobile.js"></script>
+</body>
+</html>
+{{end}}
